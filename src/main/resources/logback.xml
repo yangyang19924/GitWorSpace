@@ -38,7 +38,8 @@
     </logger>
 
     <!-- 相当于logger元素，只是name值已经确定为root了 -->
-    <root level="warn">
+    <root level="ERROR">
         <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
     </root>
 </configuration>

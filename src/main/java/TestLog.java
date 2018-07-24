@@ -4,9 +4,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by Administrator on 2018/7/21.
  */
-public class TestJava {
+public class TestLog {
+    private static final Logger logger = LoggerFactory.getLogger(TestLog.class);
 
-    private static final Logger logger = LoggerFactory.getLogger(TestJava.class);
     public static void main(String[] args) {
         logger.debug("test print out debug");
         logger.info("test print out info");
