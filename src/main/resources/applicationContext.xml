@@ -81,5 +81,7 @@
     <!--声明式事务需要配置注解驱动-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <import resource="spring-redis.xml"/>
+
 
 </beans>
