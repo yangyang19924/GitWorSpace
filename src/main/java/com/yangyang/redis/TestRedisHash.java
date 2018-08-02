@@ -28,8 +28,9 @@ public class TestRedisHash {
         boolean ex = redisTemplate.opsForHash().hasKey(key,"f3");
         System.out.println(ex);  //true
 
-//        Map map1 = redisTemplate.opsForHash().entries(key);
-//        redisTemplate.opsForHash().increment(key,"f3",2);
+        Map map1 = redisTemplate.opsForHash().entries(key);
+
+//        redisTemplate.opsForHash().increment(key,"f3",2);  //报错 ERR hash value is not an integer
 //        Object value1 = redisTemplate.opsForHash().get(key,"f3");
 //        System.out.println(value1);
 //
@@ -45,16 +46,20 @@ public class TestRedisHash {
         fiedList.add("f2");
 
         List valueList2 = redisTemplate.opsForHash().multiGet(key,keylist);
-        System.out.println(valueList2.size());  //4
+        System.out.println(valueList2.size());  //3
+
+        System.out.println(redisTemplate.opsForHash().multiGet(key,fiedList));  //[val1,val2]
 
         boolean success = redisTemplate.opsForHash().putIfAbsent(key,"f4","value4");
 
-        System.out.println(success);  //false
+        System.out.println(success);  //true
 
         redisTemplate.opsForHash().delete(key,"f1","f2");
 
         System.out.println(redisTemplate.opsForHash().get(key,"f1"));  //null
         System.out.println(redisTemplate.opsForHash().get(key,"f4"));  //value4
+
+        redisTemplate.delete(key);
 
 
 
