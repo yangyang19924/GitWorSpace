@@ -14,38 +14,20 @@
            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
-    <context:component-scan base-package="com.yangyang"/>
+    <context:component-scan base-package="com.exercise"/>
     <!-- 为了对注解的支持 -->
 
     <tx:annotation-driven/>
 
-    <!--<aop:aspectj-autoproxy />-->
-    <bean id="roleAspect" class="com.yangyang.aop.aspect.RoleAspect"/>
-    <bean id="roleService" class="com.yangyang.aop.service.impl.RoleServiceImpl"/>
-    <aop:config>
-        <aop:aspect id="c" ref="roleAspect">
-            <aop:pointcut id="tx"
-                          expression="execution(* com.yangyang.aop.service.impl.RoleServiceImpl.printRole(..))"/>
-            <aop:before pointcut-ref="tx" method="before"/>
-            <aop:after pointcut-ref="tx" method="after"/>
-            <aop:after-returning pointcut-ref="tx" method="afterReturning"/>
-            <aop:after-throwing pointcut-ref="tx" method="afterThrowing"/>
-            <aop:around pointcut-ref="tx" method="around"/>
-        </aop:aspect>
-    </aop:config>
-
-    <!--<bean id="test1" class="com.yangyang.controller.Test1" init-method="init">-->
-    <!--&lt;!&ndash;<property name="i" value="1"/>&ndash;&gt;-->
-    <!--</bean>-->
 
     <bean id="dataSource"
           class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url">
-            <value>${master_url}</value>
+            <value>192.168.199.122</value>
         </property>
-        <property name="username" value="jdbc:mysql://localhost:3306/chapter12"/>
-        <property name="password" value="123"/>
+        <property name="username" value="root"/>
+        <property name="password" value="yangyang3129"/>
 
         <!-- 连接池启动时创建的初始化连接数量（默认值为0） -->
         <property name="initialSize" value="1"/>
@@ -86,7 +68,6 @@
     <!--声明式事务需要配置注解驱动-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <import resource="spring-redis.xml"/>
 
 
 </beans>

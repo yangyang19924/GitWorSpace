@@ -8,7 +8,21 @@ public class Test1 {
     private int j;
     private int k;
 
+    public Test1(){
+        System.out.println("this is a constructor");
+    }
+
+    public void init(){
+        if(i==0)
+            System.out.println("i is 0");
+        if(j==0)
+            System.out.println("j is 0");
+        if(k==0)
+            System.out.println("k is 0");
+    }
+
     public void print() {
+
         System.out.println(i+j+k);
     }
 
