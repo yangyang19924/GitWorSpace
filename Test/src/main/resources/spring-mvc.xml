@@ -22,14 +22,14 @@
     </bean>
 
 
-    <mvc:interceptors>
-        <!--  使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求   -->
-        <!-- <bean class="com.bybo.aca.web.interceptor.Login"/> -->
-        <mvc:interceptor>
-            <mvc:mapping path="/*"/>
-            <mvc:exclude-mapping path="/index.html"/>
-            <bean class="com.yangyang.controller.LoginInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
+    <!--<mvc:interceptors>-->
+        <!--&lt;!&ndash;  使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求   &ndash;&gt;-->
+        <!--&lt;!&ndash; <bean class="com.bybo.aca.web.interceptor.Login"/> &ndash;&gt;-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/*"/>-->
+            <!--<mvc:exclude-mapping path="/index.html"/>-->
+            <!--<bean class="com.yangyang.controller.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
 
 </beans>
