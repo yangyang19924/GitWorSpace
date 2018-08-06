@@ -3,10 +3,13 @@ package com.exercise.dao;
 import com.exercise.dto.UserRedPacket;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.SelectKey;
+import org.springframework.stereotype.Repository;
+
 
 /**
  * Created by Administrator on 2018/8/5.
  */
+@Repository
 public interface UserRedPacketDAO {
 
 

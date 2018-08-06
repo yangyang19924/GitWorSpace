@@ -1,5 +1,6 @@
 package com.exercise.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.exercise.service.UserRedPacketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class UserRedPacketController {
 
     @RequestMapping("/grapRedPacket")
     @ResponseBody
-    public Map<String,Object> grapRedPacket(Long redPacketId,Long userId) {
+    public String grapRedPacket(Long redPacketId,Long userId) {
 
         int result = userRedPacketServiceImpl.grapRedPacket(redPacketId,userId);
 
@@ -31,6 +32,6 @@ public class UserRedPacketController {
         retMap.put("success",flag);
         retMap.put("message",flag?"成功":"失败");
 
-        return retMap;
+        return JSON.toJSONString(retMap);
     }
 }

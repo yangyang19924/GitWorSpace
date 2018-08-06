@@ -4,10 +4,12 @@ import com.exercise.dto.RedPacket;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Administrator on 2018/8/5.
  */
+@Repository
 public interface RedPaketDAO {
 
     @Select({"select id,user_id as userId,amount,send_date as sendDate,total,unit_amount as unitAmount,stock,version,note from",
