@@ -10,12 +10,12 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.concurrent.Executor;
 
 /**
- * 注入一个线程池
+ * 注入一个线程池，可以管理多个线程，将线程放入其中执行
  * Created by yangyang on 2018/8/7.
  */
 @Configuration
 //@ComponentScan("com.yangyang.threadPool")
-@EnableAsync
+//@EnableAsync
 public class TaskExecutorConfig implements AsyncConfigurer{
     @Override
     public Executor getAsyncExecutor() {

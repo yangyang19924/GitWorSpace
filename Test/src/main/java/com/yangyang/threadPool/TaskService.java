@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskService {
 
-    @Async
+    @Async  //加此注解就是异步执行的任务
     public void executeAsyncTask(int i) {
         System.out.println("执行异步任务1："+i);
     }
