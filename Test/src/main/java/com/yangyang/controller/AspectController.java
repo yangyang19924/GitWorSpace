@@ -3,7 +3,6 @@ package com.yangyang.controller;
 import com.yangyang.aop.service.RoleService;
 import com.yangyang.aop.service.impl.RoleServiceImpl;
 import com.yangyang.dto.Role;
-import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;

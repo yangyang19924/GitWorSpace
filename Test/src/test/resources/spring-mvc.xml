@@ -14,22 +14,20 @@
 
     <mvc:annotation-driven />
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/view/"></property>
         <property name="suffix" value=".jsp"></property>
+
     </bean>
 
     <!--springMVC上传文件，配置MultipartResolver处理器-->
-    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
-        <!--<property name="defaultEncoding" value="UTF-8"/>-->
-        <!--&lt;!&ndash;指定上传文件的总大小不能超过200k&ndash;&gt;-->
-        <!--<property name="maxUploadSize" value="200000"/>-->
-        <!--&lt;!&ndash;指定上传文件的临时路径&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="uploadTempDir" value=""/>&ndash;&gt;-->
-    <!--</bean>-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
+        <!--指定上传文件的总大小不能超过200k-->
         <property name="maxUploadSize" value="200000"/>
+        <!--指定上传文件的临时路径-->
+        <!--<property name="uploadTempDir" value=""/>-->
     </bean>
 
 
@@ -52,6 +50,5 @@
             <bean class="com.yangyang.interceptor.RoleInterceptor3"/>
         </mvc:interceptor>
     </mvc:interceptors>
-
 
 </beans>

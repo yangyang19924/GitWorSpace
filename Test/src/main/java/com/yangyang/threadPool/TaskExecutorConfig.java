@@ -14,8 +14,8 @@ import java.util.concurrent.Executor;
  * Created by yangyang on 2018/8/7.
  */
 @Configuration
-//@ComponentScan("com.yangyang.threadPool")
-//@EnableAsync
+@ComponentScan("com.yangyang.threadPool")
+@EnableAsync   //为了开启异步任务的支持
 public class TaskExecutorConfig implements AsyncConfigurer{
     @Override
     public Executor getAsyncExecutor() {

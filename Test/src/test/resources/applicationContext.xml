@@ -88,7 +88,7 @@
 
     <import resource="spring-redis.xml"/>
 
-     <!--Spring线程池-->
+     <!--Spring线程池 -->
     <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
         <!-- 核心线程数 -->
         <property name="corePoolSize" value="5" />

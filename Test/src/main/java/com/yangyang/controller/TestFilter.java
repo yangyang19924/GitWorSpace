@@ -10,7 +10,7 @@ public class TestFilter implements Filter {
 
     @Override   //filter先执行，interceptor后执行
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("filter init");
+        //System.out.println("filter init");
     }
 
     @Override
