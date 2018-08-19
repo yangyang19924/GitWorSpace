@@ -27,24 +27,38 @@ public class UserRedPacketServiceImpl implements UserRedPacketService {
 
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED,propagation = Propagation.REQUIRED)
-    public int grapRedPacket(Long redPacketId, Long userId) {
+    public int grapRedPacketForVersion(Long redPacketId, Long userId) {
 
-        RedPacket redPacket = redPaketDAO.getRedPacket(redPacketId);
+        long start = System.currentTimeMillis();
 
-        if(redPacket.getStock() > 0) {
-            redPaketDAO.decreaseRedPacket(redPacketId);
+        while(true) {
+            long end = System.currentTimeMillis();
 
-            UserRedPacket userRedPacket = new UserRedPacket();
-            userRedPacket.setRedPacketId(redPacketId);
-            userRedPacket.setUserId(userId);
-            userRedPacket.setAmount(redPacket.getUnitAmount());
-            userRedPacket.setNote("抢红包 "+redPacketId);
+            if(end - start > 100) {
+                return FAILED;
+            }
 
-            int result = userRedPacketDAO.grabRedPacket(userRedPacket);
+            RedPacket redPacket = redPaketDAO.getRedPacket(redPacketId);
 
-            return result;
+            if(redPacket.getStock() > 0) {
+                int update = redPaketDAO.decreaseRedPacketForVersion(redPacketId,redPacket.getVersion());
+
+                if(update == 0)
+                    return FAILED;
+
+                UserRedPacket userRedPacket = new UserRedPacket();
+                userRedPacket.setRedPacketId(redPacketId);
+                userRedPacket.setUserId(userId);
+                userRedPacket.setAmount(redPacket.getUnitAmount());
+                userRedPacket.setNote("抢红包 "+redPacketId);
+
+                int result = userRedPacketDAO.grabRedPacket(userRedPacket);
+
+                return result;
+            }
+
+            else
+                return FAILED;
         }
-
-        return FAILED;
     }
 }
