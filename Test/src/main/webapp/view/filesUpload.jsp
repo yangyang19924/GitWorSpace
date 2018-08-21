@@ -16,9 +16,11 @@
 <body>
 <h1 style="text-align: center;margin-top: 20px">test</h1>
 <div>
-    <form class="upload" action="${pageContext.request.contextPath}/fileUpload/upload" method="post" enctype="multipart/form-data">
+    <form class="upload" action="${pageContext.request.contextPath}/fileUpload/uploadFiles" method="post" enctype="multipart/form-data">
         <p>
             选择文件:<input type="file" name="multipartFile"/>
+            <input type="file" name="multipartFile"/>
+            <input type="file" name="multipartFile"/>
         </p>
         <p></p>
         <p style="margin-top: 20px;">
