@@ -4,6 +4,8 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * 通过代码很好理解，说简单就是在一个线程运行完之后通过condition.signal()/condition.signalAll()方法通知下一个特定的运行运行，就这样循环往复即可。
+ * 注意： 默认情况下ReentranLock类使用的是非公平锁
  * Created by yangyang on 2018/8/20.
  */
 public class ConditionSeqExec {
@@ -39,7 +41,7 @@ public class ConditionSeqExec {
             public void run() {
                 try {
                     lock.lock();
-                    while (nextPrintWho != 1) {
+                    while (nextPrintWho != 2) {
                         conditionB.await();
                     }
                     for(int i=0; i<3; i++) {
@@ -59,7 +61,7 @@ public class ConditionSeqExec {
             public void run() {
                 try {
                     lock.lock();
-                    while (nextPrintWho != 1) {
+                    while (nextPrintWho != 3) {
                         conditionC.await();
                     }
                     for(int i=0; i<3; i++) {
