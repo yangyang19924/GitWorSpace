@@ -86,7 +86,7 @@
     <!--声明式事务需要配置注解驱动-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <import resource="spring-redis.xml"/>
+
 
      <!--Spring线程池-->
     <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
@@ -104,6 +104,9 @@
         </property>
     </bean>
 
+
+    <import resource="spring-redis.xml"/>
+    <import resource="quarz.xml"/>
 
 
 </beans>
