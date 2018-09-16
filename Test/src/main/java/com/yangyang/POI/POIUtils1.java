@@ -162,7 +162,7 @@ public class POIUtils1 {
 			}
 			break;
 		case Cell.CELL_TYPE_STRING:
-			if ("hh:mm".equals(cell.getCellStyle().getDataFormatString())) {
+			if ("hh:mm".equals(cell.getCellStyle().getDataFormatString())) {  //判断单元格的格式类型
 				// 自定义格式
 				value = "1990-1-1 " + cell.getStringCellValue().toString() + ":00";
 			} else {
