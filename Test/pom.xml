@@ -173,6 +173,11 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.15</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>0.9.3</version>
+        </dependency>
     </dependencies>
 
     <build>
