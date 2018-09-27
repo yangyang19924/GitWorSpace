@@ -32,7 +32,9 @@ public class TestFastJson {
         System.out.println("userInfoList[0].name:"+userInfoList.get(0).getName());
 
 
-        JSONObject jsonObject1 = (JSONObject) JSON.toJSON(info); //将JavaBean转换为JSONObject或者JSONArray（和上面方法的区别是返回值是不一样的）
+        JSONObject jsonObject1 = JSONObject.parseObject(info.toString());  //
+        JSONObject jsonObject2 =  (JSONObject) JSON.toJSON(info); //将JavaBean转换为JSONObject或者JSONArray（和上面方法的区别是返回值是不一样的）
+        //JSONArray jsonArray = JSONArray.parseArray(JSON.toJSONString(teachUnitDTOS));  list转jsonArray
         System.out.println("JSONObject.name:"+jsonObject1.getString("name"));
         System.out.println("JSONObject.age:"+jsonObject1.getString("age"));
         jsonObject1.put("height","167cm");
