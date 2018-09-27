@@ -2,6 +2,7 @@ package com.exercise.dao;
 
 import com.exercise.dto.UserRedPacket;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectKey;
 import org.springframework.stereotype.Repository;
 
@@ -13,10 +14,10 @@ import org.springframework.stereotype.Repository;
 public interface UserRedPacketDAO {
 
 
-    @SelectKey(keyProperty = "id",statement = "",before = false,resultType = Long.class)
+    @SelectKey(keyProperty = "id",statement = "SELECT LAST_INSERT_ID()",before = false,resultType = Long.class)
     @Insert({
             "insert into t_user_red_packet(red_packet_id,user_id,amount,grab_time,note)",
-            "values(#{redPacketId},#{userId},#{amount},now(),#{note})"
+            "values(#{userRedPacket.redPacketId},#{userRedPacket.userId},#{userRedPacket.amount},now(),#{userRedPacket.note})"
     })
-    public int grabRedPacket(UserRedPacket userRedPacket);
+    public int grabRedPacket(@Param("userRedPacket") UserRedPacket userRedPacket);
 }

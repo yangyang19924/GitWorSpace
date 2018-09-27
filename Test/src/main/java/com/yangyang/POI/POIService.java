@@ -10,7 +10,7 @@ import java.util.List;
 public class POIService {
 
 //    private List<ReqPOIQuestionDTO> getDataFromExcel(InputStream in) throws Exception {
-//        POIUtils poi = new POIUtils(in);
+//        POIUtils1 poi = new POIUtils1(in);
 //        // 获取所有sheet页
 //        List<String> sheets = poi.getSheetNames();
 //        // 校验

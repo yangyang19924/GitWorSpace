@@ -20,11 +20,11 @@ public class UserRedPacketController {
     @Autowired
     private UserRedPacketService userRedPacketServiceImpl;
 
-    @RequestMapping("/grapRedPacket")
+    @RequestMapping("/grapRedPacketForVersion")
     @ResponseBody
     public String grapRedPacket(Long redPacketId,Long userId) {
 
-        int result = userRedPacketServiceImpl.grapRedPacket(redPacketId,userId);
+        int result = userRedPacketServiceImpl.grapRedPacketForVersion(redPacketId,userId);
 
         Map<String,Object> retMap = new HashMap<>();
         boolean flag = result>0;
