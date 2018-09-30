@@ -1,4 +1,4 @@
-package concurrent;
+package com.concurrent;
 
 import com.yangyang.concurrent.Thread1;
 import com.yangyang.concurrent.Thread2;
