@@ -24,7 +24,6 @@ public class TestQuartzJob extends QuartzJobBean {
         logger.debug("TestQuartzJob Begin....");
         excuteQuartzJob();
         logger.debug("TestQuartzJob end...");
-
     }
 
     private void excuteQuartzJob() {

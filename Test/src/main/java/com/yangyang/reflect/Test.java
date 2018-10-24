@@ -19,6 +19,7 @@ public class Test {
     public static ReflectServiceImpl getInstance() {
         ReflectServiceImpl object = null;
 
+
         try {
             //通过 forName 加载到类的加载器。然后通过 getConstructor 方法，它的参数可 以是多
             //个，这里定义为 String.class，意为有且只有一个参数类型为 String 的构建方法。通过这个
